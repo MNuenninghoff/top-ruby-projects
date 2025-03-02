@@ -18,6 +18,8 @@ player2.symbol = gets.chomp
 until win_condition
   puts
   puts "Turn #{turn}"
+
+  # TODO: if site is already occupied, loop until valid move is made
   if turn.even?
     puts "Player 1 - Make your move!"
     board.display_board
