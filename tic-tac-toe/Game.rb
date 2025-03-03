@@ -11,6 +11,7 @@ class Game
 
   def play_game
     start_game
+    make_moves
   end
 
   def start_game
@@ -18,5 +19,28 @@ class Game
     @player1.symbol = gets.chomp
     puts "Player 2, choose your symbol"
     @player2.symbol = gets.chomp
+  end
+
+  def make_moves
+
+    win_condition = false
+    turn = 0
+
+    until win_condition
+      puts
+      puts "Turn #{turn}"
+    
+      # TODO: if site is already occupied, loop until valid move is made
+      if turn.even?
+        puts "Player 1 - Make your move!"
+        @board.display_board
+        @board.make_move(gets.chomp, @player1)
+      else
+        puts "Player 2 - Make your move!"
+        @board.display_board
+        @board.make_move(gets.chomp, @player2)
+      end
+      turn += 1
+    end
   end
 end
