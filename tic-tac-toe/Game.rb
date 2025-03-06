@@ -16,9 +16,9 @@ class Game
 
   def start_game
     puts "Player 1, choose your symbol"
-    @player1.symbol = gets.chomp
+    @player1.chooseSymbol
     puts "Player 2, choose your symbol"
-    @player2.symbol = gets.chomp
+    @player2.chooseSymbol
   end
 
   def make_moves
@@ -40,6 +40,8 @@ class Game
         @board.display_board
         @board.make_move(gets.chomp, @player2)
       end
+
+      # TODO: check if game has been won
       turn += 1
     end
   end
